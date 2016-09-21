@@ -11,3 +11,7 @@ lines(n*log(n),type = "b", pch = v[4],col=s[4])
 
 title("Lab 1 \n Sept 21st" )
 legend(5,26000,col=s,m,pch=v)
+
+x11()
+plot(n^2+4*n+8,type = "l",xlab="DataSize",ylab="Time Growth",col=s[1])
+lines(n^3,col=s[2])
