@@ -24,7 +24,7 @@ int main()
 
     {
 
-        cout << "Error! column of first matrix not equal to row of second.";  //parallelism is not possible here. User Input
+        cout << "Error! column of first matrix not equal to row of second.";  //parallelism is not possible here. User Input. O(n)
 
         cout << "Enter rows and columns for first matrix: ";                    
 
@@ -40,7 +40,7 @@ int main()
 
 /* Storing elements of first matrix. */
 
-    cout << endl << "Enter elements of matrix 1:" << endl;   //parallelism is not possible here. User Input
+    cout << endl << "Enter elements of matrix 1:" << endl;   //parallelism is not possible here. User Input. O(n^2)
 
     for(i=0; i<r1; ++i)
 
@@ -58,7 +58,7 @@ int main()
 
 /* Storing elements of second matrix. */
 
-    cout << endl << "Enter elements of matrix 2:" << endl;   //parallelism is not possible here. User Input
+    cout << endl << "Enter elements of matrix 2:" << endl;   //parallelism is not possible here. User Input. O(n^2)
 
     for(i=0; i<r2; ++i)
 
@@ -106,7 +106,7 @@ int main()
 
 /* Displaying the multiplication of two matrix. */
 
-    cout << endl << "Output Matrix: " << endl;  //parallelism is not possible here.
+    cout << endl << "Output Matrix: " << endl;  //parallelism is not possible here. O(n^2)
 
     for(i=0; i<r1; ++i)
 
