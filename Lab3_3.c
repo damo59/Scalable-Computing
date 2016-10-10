@@ -23,7 +23,7 @@ int main (int argc, char** argv) {
   //this is an integer array of size arraysz
   int intarray[arraysz];
 
-  for (int i = 0; i < arraysz-1; i++) 
+  for (int i = 0; i < arraysz-1; i++)   //parallelism is posible here. domain decomposition.
   {
     intarray[i]= rand();
   }
@@ -39,7 +39,7 @@ int main (int argc, char** argv) {
 // this is the implementation of the function declared above
 int Average (int intarray[]) {
     int total,average;
-  for (int i = 0; i < arraysz-1; i++) {
+  for (int i = 0; i < arraysz-1; i++) {   //parallelism is posible here. domain decomposition.
     total=total+intarray[i];
   }
   
