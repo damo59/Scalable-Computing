@@ -28,10 +28,7 @@ int main (int argc, char** argv) {
     intarray[i]= rand();
   }
 
-  /* declar a string - use the word const if it will never change */
-  const char* name = "Bob";
-
-  //call the function by using its name and giving it correct parameters
+ //call the function by using its name and giving it correct parameters
   printf("Average is %d\n",Average(intarray));
   printf("Median is %d",Median(intarray));
 
