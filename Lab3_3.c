@@ -30,7 +30,7 @@ int main (int argc, char** argv) {
 
  //call the function by using its name and giving it correct parameters
   printf("Average is %d\n",Average(intarray));   //parallelism is posible here. Task decomposition.
-  printf("Median is %d",Median(intarray));
+  printf("Median is %d\n",Median(intarray));
 
   return 1;
 
