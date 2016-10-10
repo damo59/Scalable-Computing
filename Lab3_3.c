@@ -25,7 +25,7 @@ int main (int argc, char** argv) {
 
   for (int i = 0; i < arraysz-1; i++)   //parallelism is posible here. domain decomposition.
   {
-    intarray[i]= rand();
+    intarray[i]= rand()%100;
   }
 
  //call the function by using its name and giving it correct parameters
