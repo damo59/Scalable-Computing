@@ -17,7 +17,7 @@ int main (int argc, char** argv) {
 
   for (int t = 0; t < arraysz-1; t++) //parallelism is posible here. domain decomposition.
   {
-    intarray[t]= rand();
+    intarray[t]= rand()%100;
   }
 
    max=intarray[0];
