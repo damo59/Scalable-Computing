@@ -13,7 +13,7 @@ int main (int argc, char** argv) {
   //this is an integer array of size arraysz
   int intarray[arraysz];
 
-  for (int t = 0; t < arraysz-1; t++) 
+  for (int t = 0; t < arraysz-1; t++) //parallelism is posible here. domain decomposition.
   {
     intarray[t]= rand();
   }
@@ -21,7 +21,7 @@ int main (int argc, char** argv) {
   scanf("%d", &searchnum);
    
    
-   for (int t = 0; t < arraysz-1; t++) 
+   for (int t = 0; t < arraysz-1; t++) //parallelism is posible here. domain decomposition.
    {
        if(intarray[t]==searchnum)
        {
