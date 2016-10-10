@@ -1,4 +1,4 @@
-#include <iostream>
+ #include <iostream>
 using namespace std;
 int main()
 {
@@ -11,7 +11,7 @@ int main()
 /* If colum of first matrix in not equal to row of second matrix, asking user to enter the size of matrix again. */
     while (c1!=r2)
     {
-        cout << "Error! column of first matrix not equal to row of second.";  //parallelism is not possible here. User Input
+        cout << "Error! column of first matrix not equal to row of second.";  //parallelism is not possible here. User Input. O(n^2)
         cout << "Enter rows and columns for first matrix: ";                    
         cin >> r1 >> c1;
         cout << "Enter rows and columns for second matrix: ";
@@ -19,7 +19,7 @@ int main()
     }
 
 /* Storing elements of first matrix. */
-    cout << endl << "Enter elements of matrix 1:" << endl;   //parallelism is not possible here. User Input
+    cout << endl << "Enter elements of matrix 1:" << endl;   //parallelism is not possible here. User Input. O(n^2)
     for(i=0; i<r1; ++i)
     for(j=0; j<c1; ++j)
     {
@@ -28,7 +28,7 @@ int main()
     }
 
 /* Storing elements of second matrix. */
-    cout << endl << "Enter elements of matrix 2:" << endl;   //parallelism is not possible here. User Input
+    cout << endl << "Enter elements of matrix 2:" << endl;   //parallelism is not possible here. User Input. O(n^2)
     for(i=0; i<r2; ++i)
     for(j=0; j<c2; ++j)
     {
