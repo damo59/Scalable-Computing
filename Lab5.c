@@ -5,33 +5,60 @@
  */
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include <omp.h>
-//declare an constant integer called arraysz of size 1000
-const int arraysz = 100000;
-int max=0;
+//declare an constant integer called arraysz of size 1000000
+
+const int arraysz = 1000000;
+
+int count=0,lower,upper;
+int intarray[arraysz];
+
 int main (int argc, char** argv) {
 
+#pragma omp parallel
+{
+  printf("Tid is %d\n",omp_get_thread_num());
+   
+}
    srand(time(NULL));
 
   //this is an integer array of size arraysz
-  int intarray[arraysz];
+  
 
+#pragma omp parallel for
   for (int t = 0; t < arraysz-1; t++) //parallelism is posible here. domain decomposition.
   {
     intarray[t]= rand()%100;
   }
 
-   max=intarray[0];
+   scanf("%d",&lower);
+   scanf("%d",&upper);
+
    
-   for (int t = 1; t < arraysz-1; t++) //parallelism is posible here. domain decomposition.
+   for (int t = 0; t < arraysz-1; t++) //parallelism is posible here. domain decomposition.
    {
-       if(intarray[t]>max)
+       if(intarray[t] > lower && intarray[t] < upper)
        {
-           max=intarray[t];
+           count++;
        }
    }
    
-   printf("%d is the maximum value in the array",  max);
-  return 1;
+   printf("In single the numbers in the array are between the lower and upper limits %d times\n",  count);
+
+count=0;
+
+#pragma omp parallel for reduction (+:count)
+
+for (int t = 0; t < arraysz-1; t++) //parallelism is posible here. domain decomposition.
+   {
+       if(intarray[t] > lower && intarray[t] < upper)
+       {
+           count++;
+       }
+   }
+   
+   printf("In parallel the numbers in the array are between the lower and upper limits %d times\n",  count);
+  return 0;
 
 }
