@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <omp.h>
 
 int main (int argc, char *argv[])
 {
@@ -32,20 +33,32 @@ int main (int argc, char *argv[])
       printf ("Cannot allocate enough memory\n");
       exit (1);
    }
-
-   for (i = 0; i < N; i++) marked[i] = 1;
+#pragma omp parallel for private(i)
+   for (i = 0; i < N; i++) 
+	{
+  		printf("Tid is %d\n",omp_get_thread_num());
+   
+	}
+   marked[i] = 1;
    marked[0] = 0;
    marked[1] = 0; // not primes
    index = 2;
    prime = 2;
    do {
       first = 2 * prime;
-      for (i = first; i < N; i += prime) marked[i] = 0;
+      #pragma omp parallel for private(i)
+      for (i = first; i < N; i += prime) 
+	{
+  		printf("Tid is %d\n",omp_get_thread_num());
+   
+	}
+       marked[i] = 0;
       while (!marked[++index]) ;
       prime = index;
    } while (prime * prime <= n);
 
    count = 0;
+#pragma omp parallel for reduction(+:count)
    for (i = 0; i < N; i++)
       count += marked[i];
    printf ("\nThere are %d primes less than or equal to %d\n\n", count, n);

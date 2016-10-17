@@ -17,6 +17,7 @@
  */
 
 #include <stdio.h>
+#include <omp.h>
 
 int no_problem_with_digits (int i)
 {
@@ -27,6 +28,7 @@ int no_problem_with_digits (int i)
 
    prior = -1;
    sum = 0;
+
    for (j = 0; j < 6; j++) {
       latest = i % 10;
       if (latest == prior) return 0;
@@ -50,8 +52,14 @@ int main (void)
    int i;
 
    count = 0; 
+#pragma omp parallel for private(i) reduction(+:count)
    for (i = 0; i < 1000000; i++)
+	
+	  printf("Tid is %d\n",omp_get_thread_num());
+	   
+	
       if (no_problem_with_digits (i)) {
+
         count++;
       }
    printf ("There are %d acceptable ID numbers\n", count);
