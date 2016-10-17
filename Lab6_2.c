@@ -52,14 +52,14 @@ int main (void)
    int i;
 
    count = 0; 
-#pragma omp parallel for private(i) reduction(+:count)
+#pragma omp parallel for private(i) 
    for (i = 0; i < 1000000; i++)
 	
-	  printf("Tid is %d\n",omp_get_thread_num());
+	 // printf("Tid is %d\n",omp_get_thread_num());
 	   
 	
       if (no_problem_with_digits (i)) {
-
+#pragma omp atomic
         count++;
       }
    printf ("There are %d acceptable ID numbers\n", count);
