@@ -1,10 +1,11 @@
+
 /*
  * to compile this file: gcc cprogram.C -o cprogram
  * to run this file:  ./cprogram
  */
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <omp.h>
 //declare an constant integer called arraysz of size 1000
 const int arraysz = 100000;
 int max=0;
