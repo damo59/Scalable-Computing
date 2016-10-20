@@ -5,7 +5,7 @@
  int main()
  {
     srand(time(NULL));
-    int a[20][10], b[20][20], mult[20][20],i, j, k,r=20,c=20;
+    int a[20][10], b[20][20], mult2[20][20],i, j, k,r=20,c=20;
 
 
 
@@ -43,6 +43,14 @@
      {
          mult[i][j]+=a[i][k]*b[k][j];
      }
+  
+  /* Multiplying matrix a and b using parallelism and storing in array mult2. */
+     for(i=0; i<r; ++i)
+     for(j=0; j<c; ++j)
+     for(k=0; k<c; ++k)
+     {
+         mult2[i][j]+=a[i][k]*b[k][j];
+     }
 
  /* Displaying the multiplication of two matrix. */
 
@@ -53,6 +61,19 @@
          if(j==c-1)
              printf("\n ");
      }
+  
+  for(i=0; i<r; ++i)
+     for(j=0; j<c; ++j)
+     {
+         
+         if(mult[i][j]!=mult2[i][j])
+             result=0;
+     }
+     if (result==1)
+        printf("True\n");
+     else
+        printf("False\n");
+     return 0;
      return 0;
  }
 
