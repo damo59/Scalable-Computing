@@ -1,4 +1,15 @@
-//Test program for CA1. To compare best, worst cases of algorithm.
+/*  Name :           Damien Cahill
+    Student Number : X00003813
+    CA1 Part 1
+   
+   The purpose of this program is to compare best and  worst cases of the sort algorithm.
+   The array is filled with randomly placed values, sorted values and the same value in each element.
+   
+   The program is run in each case and the execution time measured.
+   For all three cases the execution time should be the same because I believe the complexity 
+   for best, average and worst cases is the same  O(n^2)
+   
+   */
 
 #include <stdio.h>
 #include <stdlib.h>
