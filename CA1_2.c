@@ -1,3 +1,17 @@
+/* Name :           Damien Cahill
+   Student Number : X00003813
+   CA1 Part 2
+   
+   The purpose of this program is to first multiply 2 martices together and  then multiply them again using parallelism.
+   When the two resultant matrices mult1 & mult2 are compared they should have the same result.
+   
+   Once the matrices are multiplied mult1 is displayed.
+   The two matrices are then compared and if they are identical "True" is printed out, if they are not "False" is printed.
+   
+   The command to run the program in parallel is
+   
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -11,7 +25,7 @@
 
 
       /* Storing elements of first matrix. */
-
+#pragma omp parallel for
      for(i=0; i<r; ++i)
      for(j=0; j<c; ++j)
      {
@@ -20,7 +34,7 @@
 
 
  /* Storing elements of second matrix. */
-
+ #pragma omp parallel for
      for(i=0; i<r; ++i)
      for(j=0; j<c; ++j)
      {
@@ -30,6 +44,7 @@
 
 
  /* Initializing elements of matrix mult to 0.*/
+  #pragma omp parallel for
      for(i=0; i<r; ++i)
      for(j=0; j<c; ++j)
      {
@@ -46,6 +61,7 @@
      }
   
   /* Multiplying matrix a and b using parallelism and storing in array mult2. */
+  #pragma omp parallel for (private j,k)
      for(i=0; i<r; ++i)
      for(j=0; j<c; ++j)
      for(k=0; k<c; ++k)
@@ -62,7 +78,7 @@
          if(j==c-1)
              printf("\n ");
      }
-  
+ #pragma omp parallel for 
   for(i=0; i<r; ++i)
      for(j=0; j<c; ++j)
      {
