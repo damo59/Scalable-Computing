@@ -17,7 +17,7 @@
 
 const int arraysz = 100000;
 int total=0;
-int searchnum=0;
+
 
 int main (int argc, char** argv) {
 
