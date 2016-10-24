@@ -34,7 +34,7 @@ int main (int argc, char** argv) {
 
    
    
-  for (int i=0; i<a.length; i++)
+  for (int i=0; i<arraysz; i++)
   {
       for(int j=i; j>=1; j-- )
       {
